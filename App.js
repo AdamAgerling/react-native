@@ -1,20 +1,24 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView } from 'react-native';
 
-export default function App() {
+import { NavigationContainer } from '@react-navigation/native';
+
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import SafeViewAndroid from './components/SafeViewAndroid';
+import FetchValorant from './components/FetchValorant';
+import SelectedAgent from './components/selectedAgent';
+const Stack = createNativeStackNavigator();
+
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaView style={SafeViewAndroid.AndroidSafeArea}>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name="Valorant" component={FetchValorant} />
+          <Stack.Screen name="Agent" component={SelectedAgent} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </SafeAreaView>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;

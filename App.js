@@ -5,7 +5,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import SafeViewAndroid from './components/SafeViewAndroid';
 import FetchValorant from './components/FetchValorant';
-import SelectedAgent from './components/selectedAgent';
+import SelectedAgent from './components/SelectedAgent';
+
 const Stack = createNativeStackNavigator();
 
 const App = () => {

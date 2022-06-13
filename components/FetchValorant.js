@@ -1,4 +1,10 @@
-import { FlatList, View, Button, Image, StyleSheet } from 'react-native';
+import {
+  FlatList,
+  TouchableOpacity,
+  Text,
+  Image,
+  StyleSheet,
+} from 'react-native';
 import { useState, useEffect } from 'react';
 
 const FetchValorant = ({ navigation }) => {
@@ -17,14 +23,39 @@ const FetchValorant = ({ navigation }) => {
       data={agents}
       renderItem={({ item }) =>
         item.isPlayableCharacter === true && (
-          <View style={styles.container}>
-            <Image source={{ uri: item.displayIcon }} style={styles.img} on />
-            <Button
-              onPress={() => navigation.navigate('Agent')}
-              title={item.displayName}
-              style={styles.text}
-            ></Button>
-          </View>
+          <TouchableOpacity
+            style={styles.container}
+            onPress={() => {
+              navigation.navigate('Agent', {
+                //Broad info
+                itemUuid: item.uuid,
+                displayName: item.displayName,
+                fullPortrait: item.fullPortraitV2,
+                description: item.description,
+
+                //Abilities Icon
+                abilityOneImg: item.abilities[0].displayIcon,
+                abilityTwoImg: item.abilities[1].displayIcon,
+                abilityThreeImg: item.abilities[2].displayIcon,
+                abilityUltimateImg: item.abilities[3].displayIcon,
+
+                // Abilities Info
+                abilityOneName: item.abilities[0].displayName,
+                abilityTwoName: item.abilities[1].displayName,
+                abilityThreeName: item.abilities[2].displayName,
+                abilityUltimateName: item.abilities[3].displayName,
+
+                // Abilities description
+                abilityOneDesc: item.abilities[0].description,
+                abilityTwoDesc: item.abilities[1].description,
+                abilityThreeDesc: item.abilities[2].description,
+                abilityUltimateDesc: item.abilities[3].description,
+              });
+            }}
+          >
+            <Image source={{ uri: item.displayIcon }} style={styles.img} />
+            <Text style={styles.text}>{item.displayName}</Text>
+          </TouchableOpacity>
         )
       }
       keyExtractor={(agent) => agent.uuid}
@@ -49,30 +80,9 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   text: {
-    fontSize: 20,
+    fontSize: 30,
     fontWeight: 'bold',
   },
 });
 
 export default FetchValorant;
-
-{
-  /* <FlatList
-      data={agents}
-      renderItem={({ item }) =>
-        item.isPlayableCharacter === true && (
-          <View
-            style={styles.container}
-            onPress={() =>
-              navigation.navigate('Agent', { name: item.displayName })
-            }
-          >
-            <Image source={{ uri: item.displayIcon }} style={styles.img} />
-            <Text style={styles.text}>{item.displayName}</Text>
-          </View>
-        )
-      }
-      keyExtractor={(agent) => agent.uuid}
-    />
-  ); */
-}

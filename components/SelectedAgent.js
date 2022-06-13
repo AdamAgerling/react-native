@@ -23,7 +23,7 @@ const SelectedAgent = ({ route }) => {
   return (
     <ScrollView>
       <View style={styles.background}>
-        {/* Description */}
+        {/* ShowCase */}
 
         <Text style={styles.heading}> {JSON.stringify(displayName)}</Text>
         <Image style={styles.portrait} source={{ uri: fullPortrait }} />

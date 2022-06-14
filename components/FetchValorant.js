@@ -28,7 +28,7 @@ const FetchValorant = ({ navigation }) => {
             onPress={() => {
               navigation.navigate('Agent', {
                 //Broad info
-                itemUuid: item.uuid,
+                // itemUuid: item.uuid,
                 displayName: item.displayName,
                 fullPortrait: item.fullPortraitV2,
                 description: item.description,

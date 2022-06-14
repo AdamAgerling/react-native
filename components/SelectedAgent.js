@@ -2,7 +2,7 @@ import { View, StyleSheet, Text, Image, ScrollView } from 'react-native';
 
 const SelectedAgent = ({ route }) => {
   const {
-    itemUuid,
+    // itemUuid,
     displayName,
     fullPortrait,
     description,
@@ -25,37 +25,37 @@ const SelectedAgent = ({ route }) => {
       <View style={styles.background}>
         {/* ShowCase */}
 
-        <Text style={styles.heading}> {JSON.stringify(displayName)}</Text>
+        <Text style={styles.heading}> {displayName}</Text>
         <Image style={styles.portrait} source={{ uri: fullPortrait }} />
         <Text style={styles.textDescription}>
-          {JSON.stringify(description)}
+          {description}
         </Text>
 
         {/* Abilities */}
         <View style={styles.container}>
           <Text style={styles.headertwo}> Abilities</Text>
-          <Text style={styles.text}>{JSON.stringify(abilityOneName)}</Text>
+          <Text style={styles.text}>{abilityOneName}</Text>
           <Image style={styles.abilityImg} source={{ uri: abilityOneImg }} />
           <Text style={styles.textDescription}>
-            {JSON.stringify(abilityOneDesc)}
+            {abilityOneDesc}
           </Text>
-          <Text style={styles.text}>{JSON.stringify(abilityTwoName)}</Text>
+          <Text style={styles.text}>{abilityTwoName}</Text>
           <Image style={styles.abilityImg} source={{ uri: abilityTwoImg }} />
           <Text style={styles.textDescription}>
-            {JSON.stringify(abilityTwoDesc)}
+            {abilityTwoDesc}
           </Text>
-          <Text style={styles.text}>{JSON.stringify(abilityThreeName)}</Text>
+          <Text style={styles.text}>{abilityThreeName}</Text>
           <Image style={styles.abilityImg} source={{ uri: abilityThreeImg }} />
           <Text style={styles.textDescription}>
-            {JSON.stringify(abilityThreeDesc)}
+            {abilityThreeDesc}
           </Text>
-          <Text style={styles.text}>{JSON.stringify(abilityUltimateName)}</Text>
+          <Text style={styles.text}>{abilityUltimateName}</Text>
           <Image
             style={styles.abilityImg}
             source={{ uri: abilityUltimateImg }}
           />
           <Text style={styles.textDescription}>
-            {JSON.stringify(abilityUltimateDesc)}
+            {abilityUltimateDesc}
           </Text>
         </View>
       </View>

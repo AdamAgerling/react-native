@@ -26,7 +26,7 @@ const FetchValorant = ({ navigation }) => {
           <TouchableOpacity
             style={styles.container}
             onPress={() => {
-              navigation.navigate('Agent', {
+              navigation.navigate('Selected Agent', {
                 //Broad info
                 // itemUuid: item.uuid,
                 displayName: item.displayName,

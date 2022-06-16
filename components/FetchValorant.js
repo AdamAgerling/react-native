@@ -18,7 +18,9 @@ const FetchValorant = ({ navigation }) => {
       });
   }, []);
 
-  return (
+  return agents === null ? (
+    <Text>Easter egg meddelande</Text>
+  ) : (
     <FlatList
       data={agents}
       renderItem={({ item }) =>
